@@ -1,0 +1,1283 @@
+2025-08-04 23:43:14,639 [DEBUG] SELECT "collection_name","filename","title","text_excerpt","full_text","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:43:14,989 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:43:15,110 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002611BCD8E90>
+2025-08-04 23:43:15,117 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002611BCCBBD0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:43:15,195 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002611BCD9250>
+2025-08-04 23:43:15,195 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:43:15,195 [DEBUG] send_request_headers.complete
+2025-08-04 23:43:15,195 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:43:15,195 [DEBUG] send_request_body.complete
+2025-08-04 23:43:15,195 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:43:16,413 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:13:16 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987649-a990-7c6f-8823-f188754e39d8'), (b'x-kong-request-id', b'01987649-a990-7c6f-8823-f188754e39d8'), (b'x-envoy-upstream-service-time', b'60'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'61'), (b'x-kong-proxy-latency', b'213'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=SeyYCpNpkhlSTG._IqVjkW5FrINKWuCfFitgpI7E37Y-1754331196-1.0.1.1-Pjg6JmlEnLlL3.zQ.lyIVH.LlU0H9VZu7XE6NrMSIZMu.zFJcYqVWWsh82wyAUXS9cDtxSmn4Z1XXF9A8mHdUg1olTBGs.jQkEElGCdA4YI; path=/; expires=Mon, 04-Aug-25 18:43:16 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=wx8LxAElMQMxkf44jZPuB9.7HP6Q_rsORqMpc.SwIz4-1754331196172-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a0071239358603-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:43:16,413 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:43:16,413 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:43:16,748 [DEBUG] receive_response_body.complete
+2025-08-04 23:43:16,749 [DEBUG] response_closed.started
+2025-08-04 23:43:16,749 [DEBUG] response_closed.complete
+2025-08-04 23:43:16,750 [DEBUG] close.started
+2025-08-04 23:43:16,751 [DEBUG] close.complete
+2025-08-04 23:49:27,986 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:27,989 [INFO] Tortoise-ORM shutdown
+2025-08-04 23:49:34,502 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-04 23:49:34,559 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000015C12787E90>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-04 23:49:34,559 [INFO] Tortoise-ORM generating schema
+2025-08-04 23:49:34,559 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:49:34,642 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000015C16C6BAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:34,642 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:49:34,650 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:34,652 [INFO] Tortoise-ORM shutdown
+2025-08-04 23:49:40,947 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-04 23:49:41,005 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000014108121730>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-04 23:49:41,005 [INFO] Tortoise-ORM generating schema
+2025-08-04 23:49:41,005 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:49:41,095 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000141081DBAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:41,095 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:49:43,276 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:43,276 [INFO] Tortoise-ORM shutdown
+2025-08-04 23:49:49,438 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-04 23:49:49,489 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x00000140887AF350>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-04 23:49:49,489 [INFO] Tortoise-ORM generating schema
+2025-08-04 23:49:49,489 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:49:49,571 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001408CCBBA00> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:49,571 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:49:55,787 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:49:55,787 [INFO] Tortoise-ORM shutdown
+2025-08-04 23:50:17,971 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-04 23:50:18,021 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001EB467147D0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-04 23:50:18,021 [INFO] Tortoise-ORM generating schema
+2025-08-04 23:50:18,021 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:50:18,096 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001EB467ABA00> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:50:18,096 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:50:18,105 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:50:18,105 [INFO] Tortoise-ORM shutdown
+2025-08-04 23:50:24,798 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-04 23:50:24,846 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x00000247D611F350>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-04 23:50:24,846 [INFO] Tortoise-ORM generating schema
+2025-08-04 23:50:24,846 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:50:24,928 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000247DA1CBAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:50:24,928 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:50:24,936 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:50:24,936 [INFO] Tortoise-ORM shutdown
+2025-08-04 23:50:31,605 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-04 23:50:31,654 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000002200BA31730>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-04 23:50:31,654 [INFO] Tortoise-ORM generating schema
+2025-08-04 23:50:31,654 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:50:31,744 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000002200BAF3AC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-04 23:50:31,744 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-04 23:50:40,945 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:50:42,216 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:50:42,393 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCA9580>
+2025-08-04 23:50:42,393 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9A350> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:50:42,454 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCA9790>
+2025-08-04 23:50:42,454 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:50:42,454 [DEBUG] send_request_headers.complete
+2025-08-04 23:50:42,454 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:50:42,463 [DEBUG] send_request_body.complete
+2025-08-04 23:50:42,463 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:50:43,588 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:20:43 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987650-7d8f-760c-93b8-2ba7158449d4'), (b'x-kong-request-id', b'01987650-7d8f-760c-93b8-2ba7158449d4'), (b'x-envoy-upstream-service-time', b'69'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'70'), (b'x-kong-proxy-latency', b'172'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=khOFu9ZiLGpA1q6YON_mStHH65OoCCvnhGOTC1Wtptw-1754331643-1.0.1.1-Tdc.k_3NQFdIKLqhI2a.hJyBMlAWq9sc_PFRDhmjxKmhkYEnZPlwLRYZ9u0CRbDUX2nrAgMiYYSRW_RZ7yF7.2_kt2MHJS7XcHofJ1K9YWw; path=/; expires=Mon, 04-Aug-25 18:50:43 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=DuBXicrd6ZdMBUTbE7o9R6GTZ90A7C_cUAOaFg0p7zE-1754331643581-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a011ff3aa43cb8-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:50:43,591 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:50:43,591 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:50:44,045 [DEBUG] receive_response_body.complete
+2025-08-04 23:50:44,045 [DEBUG] response_closed.started
+2025-08-04 23:50:44,045 [DEBUG] response_closed.complete
+2025-08-04 23:50:44,045 [DEBUG] close.started
+2025-08-04 23:50:44,045 [DEBUG] close.complete
+2025-08-04 23:55:40,113 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:55:40,466 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:55:40,518 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCB6C60>
+2025-08-04 23:55:40,518 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9BBD0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:55:40,574 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCB77D0>
+2025-08-04 23:55:40,574 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:55:40,574 [DEBUG] send_request_headers.complete
+2025-08-04 23:55:40,574 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:55:40,574 [DEBUG] send_request_body.complete
+2025-08-04 23:55:40,574 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:55:41,418 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:25:41 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'CF-RAY', b'96a01944de7e37a5-BOM'), (b'mistral-correlation-id', b'01987655-08f1-7796-adb3-0335096bad09'), (b'x-kong-request-id', b'01987655-08f1-7796-adb3-0335096bad09'), (b'x-envoy-upstream-service-time', b'70'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'71'), (b'x-kong-proxy-latency', b'173'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=PKOAY5nAUBfsnFNHUZZuQqyhRzTVRjD2Mgx863iuywk-1754331941-1.0.1.1-orddiVxjxGl8tPsB9eFnC5qPn04EjQTN899lO2z5jLlQv2457PlCdLZxSX6drDBI7j9YAF4YUGS5iDtWCEwWe0Fv5pMjULuKLELbt.Rm4wk; path=/; expires=Mon, 04-Aug-25 18:55:41 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=lXEjkM6QtPy3Wx6UEWyM7Y8JF7hwuB2EveZ_sWaE03k-1754331941410-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:55:41,418 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:55:41,418 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:55:41,939 [DEBUG] receive_response_body.complete
+2025-08-04 23:55:41,939 [DEBUG] response_closed.started
+2025-08-04 23:55:41,939 [DEBUG] response_closed.complete
+2025-08-04 23:55:41,943 [DEBUG] close.started
+2025-08-04 23:55:41,943 [DEBUG] close.complete
+2025-08-04 23:55:44,914 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:55:45,924 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:55:46,033 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCAB860>
+2025-08-04 23:55:46,033 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CFC4C50> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:55:46,091 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCAB650>
+2025-08-04 23:55:46,099 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:55:46,099 [DEBUG] send_request_headers.complete
+2025-08-04 23:55:46,099 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:55:46,103 [DEBUG] send_request_body.complete
+2025-08-04 23:55:46,103 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:55:47,150 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:25:47 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987655-1eef-765e-a4e0-010cedcb7908'), (b'x-kong-request-id', b'01987655-1eef-765e-a4e0-010cedcb7908'), (b'x-envoy-upstream-service-time', b'67'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'68'), (b'x-kong-proxy-latency', b'222'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=LNze4.b6N45TcL_hyc_d03zzoc4XI9pxgNlMpLkyaTY-1754331947-1.0.1.1-_s1Hd6ZbcsHiuzDnKEj2hKopuQrJybyJsAfV1Bl1gGjJaUXh4o0T4euBX9J0zRKXG3LKYe1uNk6BMFywX5jPvkfjp3pyAJvM8fqK9bEKAGw; path=/; expires=Mon, 04-Aug-25 18:55:47 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=dGmhBRel1mZn_zpNWrgN673mrpxmpQXOmn6AgNRDBZc-1754331947129-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a0196758f04b5d-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:55:47,158 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:55:47,158 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:55:47,711 [DEBUG] receive_response_body.complete
+2025-08-04 23:55:47,718 [DEBUG] response_closed.started
+2025-08-04 23:55:47,718 [DEBUG] response_closed.complete
+2025-08-04 23:55:47,718 [DEBUG] close.started
+2025-08-04 23:55:47,722 [DEBUG] close.complete
+2025-08-04 23:57:03,276 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:57:04,293 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:57:04,355 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCBE9F0>
+2025-08-04 23:57:04,355 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9BE50> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:57:04,414 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCBE8A0>
+2025-08-04 23:57:04,414 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:04,414 [DEBUG] send_request_headers.complete
+2025-08-04 23:57:04,414 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:57:04,414 [DEBUG] send_request_body.complete
+2025-08-04 23:57:04,414 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:05,238 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:27:05 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987656-4f40-73ec-a6c7-51cdad3b73d7'), (b'x-kong-request-id', b'01987656-4f40-73ec-a6c7-51cdad3b73d7'), (b'x-envoy-upstream-service-time', b'72'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'72'), (b'x-kong-proxy-latency', b'235'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=.ootOPAM5m.YtFD9vguLc6Hyk_EbI8UXL5l0Jy1FCJY-1754332025-1.0.1.1-Nh9x6HzXomrB8W1aWBLJzyiXDElZ2v76PvJnoPlBHcmHxtcK.WYs7FJIbBolkYVnrIy.0Gp.8Cdyzh_waeEniTJJo.DIp0x_RJ1waq_ftGM; path=/; expires=Mon, 04-Aug-25 18:57:05 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=WJZvh.5W1tKs82oZEeB9bqeJbwcMQRUPiRfKtEc6VyU-1754332025035-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a01b50de8c4926-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:57:05,241 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:57:05,241 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:57:05,291 [DEBUG] receive_response_body.complete
+2025-08-04 23:57:05,291 [DEBUG] response_closed.started
+2025-08-04 23:57:05,291 [DEBUG] response_closed.complete
+2025-08-04 23:57:05,291 [DEBUG] close.started
+2025-08-04 23:57:05,291 [DEBUG] close.complete
+2025-08-04 23:57:12,474 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:57:12,861 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:57:12,910 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200B88D670>
+2025-08-04 23:57:12,910 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9A6D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:57:12,968 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCAA7E0>
+2025-08-04 23:57:12,968 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:12,968 [DEBUG] send_request_headers.complete
+2025-08-04 23:57:12,968 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:57:12,968 [DEBUG] send_request_body.complete
+2025-08-04 23:57:12,968 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:13,516 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:27:13 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'CF-RAY', b'96a01b865b8bff9f-BOM'), (b'mistral-correlation-id', b'01987656-70ae-75e0-8fb6-7f1415e59704'), (b'x-kong-request-id', b'01987656-70ae-75e0-8fb6-7f1415e59704'), (b'x-envoy-upstream-service-time', b'63'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'64'), (b'x-kong-proxy-latency', b'147'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=_ysMsiWyW4YjIXXBP9Gv_7..gQz1zyqjYmGEkzzSNAE-1754332033-1.0.1.1-Yk6o0NWh.zwN8Ix91cyajk3u8oiuS6eedQPuI50QVlRXeq6eSxIkUuRi_CnAV1VrWJF8QX018d_zauX3Vh_AX8JvM6xIm7nD8rnfKeh6d94; path=/; expires=Mon, 04-Aug-25 18:57:13 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=5cUBw3m5Q6R0vL9oA_SVfURec1BNX_Lyo3277u3SAsM-1754332033473-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:57:13,516 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:57:13,516 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:57:13,607 [DEBUG] receive_response_body.complete
+2025-08-04 23:57:13,607 [DEBUG] response_closed.started
+2025-08-04 23:57:13,615 [DEBUG] response_closed.complete
+2025-08-04 23:57:13,616 [DEBUG] close.started
+2025-08-04 23:57:13,616 [DEBUG] close.complete
+2025-08-04 23:57:16,744 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:57:17,091 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:57:17,135 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCBF410>
+2025-08-04 23:57:17,136 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9A8D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:57:17,183 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCBFAD0>
+2025-08-04 23:57:17,183 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:17,183 [DEBUG] send_request_headers.complete
+2025-08-04 23:57:17,183 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:57:17,183 [DEBUG] send_request_body.complete
+2025-08-04 23:57:17,183 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:18,033 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:27:18 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987656-824c-73f2-bcb9-2405d568d376'), (b'x-kong-request-id', b'01987656-824c-73f2-bcb9-2405d568d376'), (b'x-envoy-upstream-service-time', b'72'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'73'), (b'x-kong-proxy-latency', b'172'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=GVzC9BMJuLtrOD6oEeE6ViM0KJUDMBZl0LMrBzCjgUc-1754332038-1.0.1.1-6gV7PSGq53.S.4SV84kBPAmyULlQR9KV9bcmiMhJna.lReepKmU.Orw.ZJE0An.dI0Zc2ujGQjxSn3XJrzL.3a6JA0hOwF14zmgnF4Y9tCo; path=/; expires=Mon, 04-Aug-25 18:57:18 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=S8fQi5bNp7puz0Xv8Vdk4TnIcRggoeNzUYJy9fg.P1A-1754332038014-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a01ba0aeaa3d26-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:57:18,035 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:57:18,035 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:57:18,459 [DEBUG] receive_response_body.complete
+2025-08-04 23:57:18,467 [DEBUG] response_closed.started
+2025-08-04 23:57:18,467 [DEBUG] response_closed.complete
+2025-08-04 23:57:18,467 [DEBUG] close.started
+2025-08-04 23:57:18,467 [DEBUG] close.complete
+2025-08-04 23:57:19,968 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-04 23:57:20,994 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-04 23:57:21,051 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCB69C0>
+2025-08-04 23:57:21,059 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9B5D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-04 23:57:21,112 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCB6090>
+2025-08-04 23:57:21,121 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:21,123 [DEBUG] send_request_headers.complete
+2025-08-04 23:57:21,123 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-04 23:57:21,123 [DEBUG] send_request_body.complete
+2025-08-04 23:57:21,127 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 23:57:21,713 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:27:21 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987656-9098-7b2f-b5a4-e0f808d90802'), (b'x-kong-request-id', b'01987656-9098-7b2f-b5a4-e0f808d90802'), (b'x-envoy-upstream-service-time', b'83'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'84'), (b'x-kong-proxy-latency', b'22'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=fs8qs3HO1qDN697jaoc4Ia6Kd1mNVwjJ63dzEgWll88-1754332041-1.0.1.1-.1oMdCrteKZeDW3YS_kJG3mw_eUTgae6Cd3frFOEwgoNGJMEM5g4u4D6s5.PUxLqxAYD8CKYR5GldTgsXOXpM71Qhoc_nKvU7naO22Xo9xk; path=/; expires=Mon, 04-Aug-25 18:57:21 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=P4HQ0257ZRGWZ634lZIl3mn8BL3EzXU7Z5HKnFX8ehY-1754332041574-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a01bb94bfa425a-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-04 23:57:21,715 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-04 23:57:21,715 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-04 23:57:22,220 [DEBUG] receive_response_body.complete
+2025-08-04 23:57:22,220 [DEBUG] response_closed.started
+2025-08-04 23:57:22,220 [DEBUG] response_closed.complete
+2025-08-04 23:57:22,220 [DEBUG] close.started
+2025-08-04 23:57:22,227 [DEBUG] close.complete
+2025-08-05 00:02:07,839 [DEBUG] SELECT "filename","collection_name","title","full_text","text_excerpt","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:02:08,225 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:02:08,356 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCCAA50>
+2025-08-05 00:02:08,358 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000002200CC9B350> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:02:08,427 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002200CCCA1E0>
+2025-08-05 00:02:08,427 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:02:08,429 [DEBUG] send_request_headers.complete
+2025-08-05 00:02:08,429 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:02:08,429 [DEBUG] send_request_body.complete
+2025-08-05 00:02:08,431 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:02:09,576 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:32:09 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'0198765a-f48d-76d6-90a8-06648e505c2b'), (b'x-kong-request-id', b'0198765a-f48d-76d6-90a8-06648e505c2b'), (b'x-envoy-upstream-service-time', b'67'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'68'), (b'x-kong-proxy-latency', b'226'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=.1jbQBbCALPfSkqUFHZHs61C8X0vAfJWy6WI_QrC26Y-1754332329-1.0.1.1-m6kdf9Y4Q2cVzTv6L2c2BkQzoZP5mA2fdvhHUfLNMhXYdvCCCxUMlOzJABf7rmskwY6NM9I6e259bJwhPzG0iET0p0eru7q3w6GnOc.jufw; path=/; expires=Mon, 04-Aug-25 19:02:09 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=RfNj0Od5f06PYThv1.sQUpPc74hFaqbI.A2LfAjlyTk-1754332329502-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a022bcfa3f47c3-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:02:09,576 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-05 00:02:09,576 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:02:10,089 [DEBUG] receive_response_body.complete
+2025-08-05 00:02:10,089 [DEBUG] response_closed.started
+2025-08-05 00:02:10,093 [DEBUG] response_closed.complete
+2025-08-05 00:02:10,093 [DEBUG] close.started
+2025-08-05 00:02:10,093 [DEBUG] close.complete
+2025-08-05 00:02:33,320 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:02:33,320 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:02:40,896 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:02:41,510 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:02:41,555 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000025008574620>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:02:41,555 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:02:41,555 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:02:41,637 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000025008613AC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:02:41,637 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:02:41,646 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:02:41,646 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:02:47,098 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:02:47,775 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:02:47,819 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001EE3F7D0110>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:02:47,819 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:02:47,819 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:02:47,901 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001EE3F897AC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:02:47,901 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:03:05,523 [DEBUG] SELECT "id","collection_name","title","text_excerpt","filename","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:03:06,218 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:03:06,326 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EE3FA79790>
+2025-08-05 00:03:06,326 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000001EE3FA6A3D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:03:06,451 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EE3FA79370>
+2025-08-05 00:03:06,451 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:03:06,451 [DEBUG] send_request_headers.complete
+2025-08-05 00:03:06,451 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:03:06,451 [DEBUG] send_request_body.complete
+2025-08-05 00:03:06,451 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:03:08,788 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:33:08 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'CF-RAY', b'96a0242dfd05480b-BOM'), (b'mistral-correlation-id', b'0198765b-dbb1-7787-9e62-cc09e8317552'), (b'x-kong-request-id', b'0198765b-dbb1-7787-9e62-cc09e8317552'), (b'x-envoy-upstream-service-time', b'73'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'74'), (b'x-kong-proxy-latency', b'202'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=RlINOrm.Pg4N8nPFQ.66SpUI_dbir5gq.sqqwuKP5A4-1754332388-1.0.1.1-2g1dljjewdjMrapLcZtcLWnBemPaHUbS5OyTadBQI5cAje1wucKAGOQQdZDQ9s7loNLhbmls716LwGoiOwC.9Ton9KJA0JtyBa1H9u2aeyM; path=/; expires=Mon, 04-Aug-25 19:03:08 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=cMg2kWIp.hKXz58m5c5eUFFLUTMW6Hi2bPVFg_lgQ5M-1754332388656-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:03:08,796 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-05 00:03:08,796 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:03:09,380 [DEBUG] receive_response_body.complete
+2025-08-05 00:03:09,383 [DEBUG] response_closed.started
+2025-08-05 00:03:09,383 [DEBUG] response_closed.complete
+2025-08-05 00:03:09,383 [DEBUG] close.started
+2025-08-05 00:03:09,383 [DEBUG] close.complete
+2025-08-05 00:04:39,066 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:39,067 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:04:46,579 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:04:46,626 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000023E9CF8AAB0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:04:46,628 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:04:46,628 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:04:46,701 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000023E9DB4BAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:46,701 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:04:46,709 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:46,709 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:04:53,173 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:04:53,222 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000019E300F1A90>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:04:53,222 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:04:53,222 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:04:53,304 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000019E3028BA00> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:53,304 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:04:53,312 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:53,312 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:04:59,736 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:04:59,786 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000020383CD4A10>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:04:59,786 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:04:59,786 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:04:59,859 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000020383D6BB80> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:59,859 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:04:59,867 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:04:59,867 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:05:06,101 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:05:06,149 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001A2AF1B1730>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:05:06,149 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:05:06,149 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:06,224 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001A2AF26BAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:06,224 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:06,232 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:06,232 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:05:14,521 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:05:14,565 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001E57FCB48F0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:05:14,565 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:05:14,570 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:14,670 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001E57FD4BAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:14,670 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:16,540 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:16,540 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:05:23,025 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:05:23,073 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000024E9C25C9B0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:05:23,073 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:05:23,073 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:23,281 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000024E9F06BB80> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:23,320 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:23,327 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:23,329 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:05:35,275 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:05:35,358 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001ABA44E4BF0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:05:35,358 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:05:35,358 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:35,448 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001ABA4577A00> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:35,448 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:37,354 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:37,354 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:05:43,800 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:05:43,851 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000014DC5607890>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:05:43,851 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:05:43,851 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:43,933 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000014DC980BA00> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:43,933 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:49,108 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:49,108 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:05:55,277 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:05:55,326 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x00000209BA1D7860>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:05:55,326 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:05:55,326 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:05:55,525 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000209BE2ABB80> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:05:55,525 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:06:20,419 [DEBUG] SELECT "full_text","id","text_excerpt","collection_name","title","filename" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:06:20,936 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:06:20,975 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000209BE4995E0>
+2025-08-05 00:06:20,975 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x00000209BE48A3D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:06:21,056 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000209BE499190>
+2025-08-05 00:06:21,056 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:06:21,056 [DEBUG] send_request_headers.complete
+2025-08-05 00:06:21,056 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:06:21,056 [DEBUG] send_request_body.complete
+2025-08-05 00:06:21,056 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:06:21,726 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 422, b'Unprocessable Entity', [(b'Date', b'Mon, 04 Aug 2025 18:36:21 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'125070'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'0198765e-cdac-77b9-ac0d-def361bcfd0b'), (b'x-kong-request-id', b'0198765e-cdac-77b9-ac0d-def361bcfd0b'), (b'x-envoy-upstream-service-time', b'87'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'88'), (b'x-kong-proxy-latency', b'170'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=JWrEzB.mQ0pqlTAeW6mq.dlns8TpjukMEkmB7rnVJu0-1754332581-1.0.1.1-GHS3W_jtGLN8ep8h7RH8AvZYEsMUuHe2OQOe7vAB_zCQPmM7QrYOjOBuJP7IpIUiVZ6dWccbOx16LIKsUfp3Kfvl8pcxfYNRVtHApw1SMtY; path=/; expires=Mon, 04-Aug-25 19:06:21 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=AtVICJbFP5JTDodVsWd_i_SEtq_yrgz0X_FvxIujaRw-1754332581618-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a028e7e9b547f6-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:06:21,729 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 422 Unprocessable Entity"
+2025-08-05 00:06:21,729 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:06:21,772 [DEBUG] receive_response_body.complete
+2025-08-05 00:06:21,772 [DEBUG] response_closed.started
+2025-08-05 00:06:21,772 [DEBUG] response_closed.complete
+2025-08-05 00:06:21,772 [DEBUG] close.started
+2025-08-05 00:06:21,772 [DEBUG] close.complete
+2025-08-05 00:09:48,274 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:09:48,274 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:09:56,020 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:09:56,077 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000002B6FB0F0110>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:09:56,077 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:09:56,077 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:09:56,289 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000002B6FBDE7AC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:09:56,289 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:09:56,295 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:09:56,295 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:10:04,227 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:10:04,278 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000024503364890>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:10:04,278 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:10:04,278 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:10:04,435 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000245033FBA00> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:10:04,450 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:10:06,888 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:10:06,888 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:10:13,632 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:10:13,686 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000021509664860>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:10:13,687 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:10:13,687 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:10:13,882 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000215096FBAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:10:13,882 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:11:26,804 [DEBUG] SELECT "collection_name","full_text","filename","text_excerpt","id","title" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:11:27,279 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:11:27,394 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000215098E9580>
+2025-08-05 00:11:27,394 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x00000215097AD9D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:11:27,448 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000215098E9520>
+2025-08-05 00:11:27,448 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:11:27,448 [DEBUG] send_request_headers.complete
+2025-08-05 00:11:27,448 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:11:27,448 [DEBUG] send_request_body.complete
+2025-08-05 00:11:27,448 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:11:28,541 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 04 Aug 2025 18:41:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987663-7ab5-7b58-9d62-fb3a9d8dfa8e'), (b'x-kong-request-id', b'01987663-7ab5-7b58-9d62-fb3a9d8dfa8e'), (b'x-envoy-upstream-service-time', b'608'), (b'x-ratelimit-limit-tokens-minute', b'20000000'), (b'x-ratelimit-remaining-tokens-minute', b'19982557'), (b'x-ratelimit-limit-tokens-month', b'200000000000'), (b'x-ratelimit-remaining-tokens-month', b'199999982557'), (b'x-ratelimit-tokens-query-cost', b'17443'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'59'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'608'), (b'x-kong-proxy-latency', b'141'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=v2bb56ZlvbhaGx_LeeJRG2q7VjYnTqSDGHfz_SRdcPc-1754332888-1.0.1.1-f2WaQTlEA8FnSNsjCCNM8Q_Wu33oMqbyvsPCuf6KgiFcWYVAdXMSBP6.DTzJDCtz8KdFuNXvF2bmz8OU4rAt3rFXMvp.0vWzhg2cP.PtCVE; path=/; expires=Mon, 04-Aug-25 19:11:28 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=SzaXtSaUble21eqlug3f7amIXp7no9mxBSZZMoRAma8-1754332888542-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a03062effb31a5-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:11:28,550 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-05 00:11:28,550 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:11:28,808 [DEBUG] receive_response_body.complete
+2025-08-05 00:11:28,810 [DEBUG] response_closed.started
+2025-08-05 00:11:28,810 [DEBUG] response_closed.complete
+2025-08-05 00:11:28,826 [DEBUG] close.started
+2025-08-05 00:11:28,827 [DEBUG] close.complete
+2025-08-05 00:11:29,477 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:11:30,366 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:11:30,433 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:11:30,483 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000215098E9A60>
+2025-08-05 00:11:30,483 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x00000215098D5650> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:11:30,528 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000021509565FA0>
+2025-08-05 00:11:30,533 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:11:30,533 [DEBUG] send_request_headers.complete
+2025-08-05 00:11:30,533 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:11:30,533 [DEBUG] send_request_body.complete
+2025-08-05 00:11:30,533 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:11:31,869 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 04 Aug 2025 18:41:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987663-87c6-77a8-ba88-834a01259b05'), (b'x-kong-request-id', b'01987663-87c6-77a8-ba88-834a01259b05'), (b'x-envoy-upstream-service-time', b'534'), (b'x-ratelimit-limit-tokens-minute', b'20000000'), (b'x-ratelimit-remaining-tokens-minute', b'19967163'), (b'x-ratelimit-limit-tokens-month', b'200000000000'), (b'x-ratelimit-remaining-tokens-month', b'199999967163'), (b'x-ratelimit-tokens-query-cost', b'15394'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'58'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'535'), (b'x-kong-proxy-latency', b'174'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Ti1bKygrEECYikr8l1FREDaNtomxktj0Ps8jGNam9rw-1754332891-1.0.1.1-cu__ItF3yJ0UvjwXJqWVC1Q8ZO_H5nS9gGkdlA0T_R1PwM31Tle0JgOWe0dshbqlc7cbFSmsR4MNkg_i1lLo3pOTF1gLzwVXJAXwWVaFlU0; path=/; expires=Mon, 04-Aug-25 19:11:31 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=WFDWrkzftYr0rEnNzGdu_k.yG2s5LfSFyHVDVsSzluI-1754332891867-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a0307618cbd7fb-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:11:31,873 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-05 00:11:31,873 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:11:32,671 [DEBUG] receive_response_body.complete
+2025-08-05 00:11:32,673 [DEBUG] response_closed.started
+2025-08-05 00:11:32,673 [DEBUG] response_closed.complete
+2025-08-05 00:11:32,690 [DEBUG] close.started
+2025-08-05 00:11:32,692 [DEBUG] close.complete
+2025-08-05 00:11:33,337 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:14:06,997 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:14:06,997 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:14:14,176 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:14:14,227 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001423F971730>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:14:14,227 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:14:14,227 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:14:14,319 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001423FA33AC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:14:14,319 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:14:40,756 [DEBUG] SELECT "filename","title","collection_name","id","full_text","text_excerpt" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:14:41,277 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:14:41,321 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001423FA5EB10>
+2025-08-05 00:14:41,321 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000001423FADD6D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:14:41,379 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001423FC190A0>
+2025-08-05 00:14:41,379 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:14:41,379 [DEBUG] send_request_headers.complete
+2025-08-05 00:14:41,379 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:14:41,386 [DEBUG] send_request_body.complete
+2025-08-05 00:14:41,386 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:14:42,821 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 04 Aug 2025 18:44:42 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'mistral-correlation-id', b'01987666-714d-72a5-9cda-72d618f0d379'), (b'x-kong-request-id', b'01987666-714d-72a5-9cda-72d618f0d379'), (b'x-envoy-upstream-service-time', b'588'), (b'x-ratelimit-limit-tokens-minute', b'20000000'), (b'x-ratelimit-remaining-tokens-minute', b'19982557'), (b'x-ratelimit-limit-tokens-month', b'200000000000'), (b'x-ratelimit-remaining-tokens-month', b'199999949720'), (b'x-ratelimit-tokens-query-cost', b'17443'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'59'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'589'), (b'x-kong-proxy-latency', b'185'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=bZSpa3VWVnQEC_RKnCoOi2oMwIJaiNNJykGqq5W9E3A-1754333082-1.0.1.1-I8kZVc3IqtHDZP.j5o.HTOBag6bqm4_vRcWfjMDGp6nt7ch7aXi5obhLHssuWBzOS7B.osafS1KnEOqQ8AlgM7b5KkDfH2reBpVk1F_L8Sc; path=/; expires=Mon, 04-Aug-25 19:14:42 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=jj4F0UgUrqw3msmhrbC8Y_2STSyhb_8z3OtAvPzINcs-1754333082780-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a0351eebb6402b-BOM'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:14:42,829 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-05 00:14:42,829 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:14:43,597 [DEBUG] receive_response_body.complete
+2025-08-05 00:14:43,597 [DEBUG] response_closed.started
+2025-08-05 00:14:43,597 [DEBUG] response_closed.complete
+2025-08-05 00:14:43,607 [DEBUG] close.started
+2025-08-05 00:14:43,607 [DEBUG] close.complete
+2025-08-05 00:14:44,408 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:14:44,737 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 00:14:44,777 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001423FC18290>
+2025-08-05 00:14:44,777 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x000001423FC096D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 00:14:44,830 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001423F9DA840>
+2025-08-05 00:14:44,832 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:14:44,832 [DEBUG] send_request_headers.complete
+2025-08-05 00:14:44,832 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:14:44,832 [DEBUG] send_request_body.complete
+2025-08-05 00:14:44,832 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:14:46,538 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 04 Aug 2025 18:44:46 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987666-7efc-7ef1-9b6e-38b1cb28cf9d'), (b'x-kong-request-id', b'01987666-7efc-7ef1-9b6e-38b1cb28cf9d'), (b'x-envoy-upstream-service-time', b'531'), (b'x-ratelimit-limit-tokens-minute', b'20000000'), (b'x-ratelimit-remaining-tokens-minute', b'19967163'), (b'x-ratelimit-limit-tokens-month', b'200000000000'), (b'x-ratelimit-remaining-tokens-month', b'199999934326'), (b'x-ratelimit-tokens-query-cost', b'15394'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'58'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'532'), (b'x-kong-proxy-latency', b'205'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=c6XFJikRzpPhGkLoYuowjlo0PZ3CUiBDVKYmax1.Lew-1754333086-1.0.1.1-hcuGsITbNoWD2v3FX0Mf0d80CTY787beTJN08evC7ihhSdOKYd2HIh0xFtC2U_Eo5kFmoZrFQahIQiu_ba91h1EOVcPmTE8hvver6MFoecc; path=/; expires=Mon, 04-Aug-25 19:14:46 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=U84PG81390uavSEC.jHnmTusnGy1cnbsA7aenAF0zi8-1754333086273-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a035347ab5851c-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:14:46,538 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-05 00:14:46,538 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:14:47,254 [DEBUG] receive_response_body.complete
+2025-08-05 00:14:47,254 [DEBUG] response_closed.started
+2025-08-05 00:14:47,256 [DEBUG] response_closed.complete
+2025-08-05 00:14:47,269 [DEBUG] close.started
+2025-08-05 00:14:47,269 [DEBUG] close.complete
+2025-08-05 00:14:48,377 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:15:54,527 [DEBUG] SELECT "filename","title","collection_name","id","full_text","text_excerpt" FROM "pdf_logs" ORDER BY "id" DESC: []
+2025-08-05 00:19:26,776 [DEBUG] SELECT "filename","title","collection_name","id","full_text","text_excerpt" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:22:56,220 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:22:56,220 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:23:03,388 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:23:03,433 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x00000225C6BA5880>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:23:03,433 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:23:03,433 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:23:03,514 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000225C6C53E80> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:23:03,514 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:23:03,514 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:23:03,514 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:23:04,900 [DEBUG] Starting new HTTPS connection (10): us.i.posthog.com:443
+2025-08-05 00:23:16,044 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:16,044 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002259CCD97C0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:16,044 [DEBUG] Starting new HTTPS connection (11): us.i.posthog.com:443
+2025-08-05 00:23:16,044 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:16,044 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000225C6B71760>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:16,044 [DEBUG] Starting new HTTPS connection (12): us.i.posthog.com:443
+2025-08-05 00:23:16,056 [ERROR] Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000225C6BA5190>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:23:21,963 [DEBUG] Starting new HTTPS connection (7): us.i.posthog.com:443
+2025-08-05 00:23:22,713 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:23:22,767 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000002097CDAF950>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:23:22,768 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:23:22,768 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:23:22,845 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000002097FE7BF40> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:23:22,845 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:23:30,001 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:23:30,001 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:23:33,081 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:33,081 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002097F4405F0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:33,081 [DEBUG] Starting new HTTPS connection (8): us.i.posthog.com:443
+2025-08-05 00:23:33,081 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:33,081 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000020956BABD40>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:33,081 [DEBUG] Starting new HTTPS connection (9): us.i.posthog.com:443
+2025-08-05 00:23:33,089 [INFO] Backing off send_request(...) for 2.5s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000209595784A0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:23:35,551 [DEBUG] Starting new HTTPS connection (10): us.i.posthog.com:443
+2025-08-05 00:23:35,563 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:35,563 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002097FDCDAC0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:35,563 [DEBUG] Starting new HTTPS connection (11): us.i.posthog.com:443
+2025-08-05 00:23:35,563 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:35,563 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002097FDCE390>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:35,563 [DEBUG] Starting new HTTPS connection (12): us.i.posthog.com:443
+2025-08-05 00:23:35,563 [ERROR] Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002097FEC2090>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:23:42,964 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:23:43,014 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000019E5DA47F20>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:23:43,014 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:23:43,014 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:23:43,210 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000019E5DB5BAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:23:43,242 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:23:46,689 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:46,691 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E47DA4200>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:46,691 [DEBUG] Starting new HTTPS connection (2): us.i.posthog.com:443
+2025-08-05 00:23:46,691 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:46,691 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5974E420>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:46,691 [DEBUG] Starting new HTTPS connection (3): us.i.posthog.com:443
+2025-08-05 00:23:46,700 [INFO] Backing off send_request(...) for 1.0s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9C890>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:23:47,681 [DEBUG] Starting new HTTPS connection (4): us.i.posthog.com:443
+2025-08-05 00:23:47,683 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:47,683 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9D760>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:47,683 [DEBUG] Starting new HTTPS connection (5): us.i.posthog.com:443
+2025-08-05 00:23:47,686 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:47,686 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9D820>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:47,688 [DEBUG] Starting new HTTPS connection (6): us.i.posthog.com:443
+2025-08-05 00:23:47,691 [INFO] Backing off send_request(...) for 0.1s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9D9D0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:23:47,795 [DEBUG] Starting new HTTPS connection (7): us.i.posthog.com:443
+2025-08-05 00:23:47,795 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:47,795 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9DDF0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:47,795 [DEBUG] Starting new HTTPS connection (8): us.i.posthog.com:443
+2025-08-05 00:23:47,795 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:47,795 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9DEB0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:47,795 [DEBUG] Starting new HTTPS connection (9): us.i.posthog.com:443
+2025-08-05 00:23:47,803 [INFO] Backing off send_request(...) for 4.0s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9E060>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:23:51,807 [DEBUG] Starting new HTTPS connection (10): us.i.posthog.com:443
+2025-08-05 00:23:57,832 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=1, connect=1, read=2, redirect=None, status=None)
+2025-08-05 00:23:57,832 [WARNING] Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9E570>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:57,832 [DEBUG] Starting new HTTPS connection (11): us.i.posthog.com:443
+2025-08-05 00:23:57,832 [DEBUG] Incremented Retry for (url='/batch/'): Retry(total=0, connect=0, read=2, redirect=None, status=None)
+2025-08-05 00:23:57,832 [WARNING] Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9E7B0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-08-05 00:23:57,832 [DEBUG] Starting new HTTPS connection (12): us.i.posthog.com:443
+2025-08-05 00:23:57,840 [ERROR] Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E5DB9E9F0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-08-05 00:28:38,580 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:28:38,580 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:28:47,540 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:28:47,602 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x00000197B5420110>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:28:47,602 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:28:47,602 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:28:47,704 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x00000197B54E3AC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:28:47,704 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:28:56,724 [DEBUG] SELECT "filename","text_excerpt","full_text","title","collection_name","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:28:56,782 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=120 socket_options=None
+2025-08-05 00:28:57,599 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000197B56591F0>
+2025-08-05 00:28:57,600 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x00000197B1E25550> server_hostname='api.mistral.ai' timeout=120
+2025-08-05 00:28:57,690 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000197B5659100>
+2025-08-05 00:28:57,690 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:28:57,691 [DEBUG] send_request_headers.complete
+2025-08-05 00:28:57,691 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:28:57,691 [DEBUG] send_request_body.complete
+2025-08-05 00:28:57,691 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:29:13,312 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 04 Aug 2025 18:59:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987673-8c5d-743b-97bf-9909973f1946'), (b'x-kong-request-id', b'01987673-8c5d-743b-97bf-9909973f1946'), (b'x-envoy-upstream-service-time', b'11663'), (b'x-ratelimit-limit-tokens-minute', b'500000'), (b'x-ratelimit-remaining-tokens-minute', b'485947'), (b'x-ratelimit-limit-tokens-month', b'1000000000'), (b'x-ratelimit-remaining-tokens-month', b'999985300'), (b'x-ratelimit-tokens-query-cost', b'14053'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'59'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'11664'), (b'x-kong-proxy-latency', b'306'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=jAk3anDELdnJtwiXFmmRyJ9IgYc4JvGhlNKgtmIp8ZU-1754333953-1.0.1.1-JF29fDq4wd2R.mxRt59HiBx_3u9sR3RYr1TW5E9AdTO.I6VpDOM5flhPuKzDBScPSzyafGV1KWeReFHO_OkITWaQ_6Ja8rdhiXosxGsIqsc; path=/; expires=Mon, 04-Aug-25 19:29:13 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=JJ1GB0UiJiksIMbZj9aeNEYLSRJ_gBt5T0f6tYqeUxo-1754333953007-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a04a076ce07a0a-PAT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:29:13,317 [INFO] HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-05 00:29:13,331 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:29:13,334 [DEBUG] receive_response_body.complete
+2025-08-05 00:29:13,335 [DEBUG] response_closed.started
+2025-08-05 00:29:13,335 [DEBUG] response_closed.complete
+2025-08-05 00:29:13,380 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:29:13,380 [DEBUG] send_request_headers.complete
+2025-08-05 00:29:13,380 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:29:13,380 [DEBUG] send_request_body.complete
+2025-08-05 00:29:13,380 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:29:28,112 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 04 Aug 2025 18:59:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'01987673-c864-79b0-9dd2-3a9a06d6cfbd'), (b'x-kong-request-id', b'01987673-c864-79b0-9dd2-3a9a06d6cfbd'), (b'x-envoy-upstream-service-time', b'11504'), (b'x-ratelimit-limit-tokens-minute', b'500000'), (b'x-ratelimit-remaining-tokens-minute', b'470577'), (b'x-ratelimit-limit-tokens-month', b'1000000000'), (b'x-ratelimit-remaining-tokens-month', b'999969930'), (b'x-ratelimit-tokens-query-cost', b'15370'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'58'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'11505'), (b'x-kong-proxy-latency', b'123'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a04a69ef807a0a-PAT'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 00:29:28,113 [INFO] HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-05 00:29:28,113 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 00:29:28,113 [DEBUG] receive_response_body.complete
+2025-08-05 00:29:28,113 [DEBUG] response_closed.started
+2025-08-05 00:29:28,113 [DEBUG] response_closed.complete
+2025-08-05 00:31:18,022 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:31:18,022 [INFO] Tortoise-ORM shutdown
+2025-08-05 00:31:24,900 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 00:31:24,950 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000021FBEAE7AD0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 00:31:24,950 [INFO] Tortoise-ORM generating schema
+2025-08-05 00:31:24,951 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:31:25,030 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000021FC420BAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 00:31:25,030 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 00:31:45,290 [DEBUG] SELECT "full_text","filename","title","text_excerpt","collection_name","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 00:31:45,331 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=120 socket_options=None
+2025-08-05 00:31:49,762 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000021FC42E1730>
+2025-08-05 00:31:49,762 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x0000021FC0C35ED0> server_hostname='api.mistral.ai' timeout=120
+2025-08-05 00:31:50,054 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 00:31:58,532 [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000021FC424CA70>
+2025-08-05 00:31:58,532 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 00:31:58,532 [DEBUG] send_request_headers.complete
+2025-08-05 00:31:58,532 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 00:31:58,536 [DEBUG] send_request_body.complete
+2025-08-05 00:31:58,536 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 00:32:15,910 [DEBUG] receive_response_headers.failed exception=RemoteProtocolError('Server disconnected without sending a response.')
+2025-08-05 00:32:15,910 [DEBUG] response_closed.started
+2025-08-05 00:32:15,915 [DEBUG] response_closed.complete
+2025-08-05 15:43:38,977 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 15:43:39,116 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000022705F64560>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 15:43:39,118 [INFO] Tortoise-ORM generating schema
+2025-08-05 15:43:39,118 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 15:43:39,207 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000022705FFFAC0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 15:43:39,207 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL
+);
+2025-08-05 15:46:01,757 [DEBUG] SELECT "collection_name","full_text","title","text_excerpt","filename","id" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 15:46:02,896 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 15:46:03,057 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000227061F6FC0>
+2025-08-05 15:46:03,059 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x00000227060BB1D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 15:46:03,156 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000227061F6C30>
+2025-08-05 15:46:03,159 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 15:46:03,159 [DEBUG] send_request_headers.complete
+2025-08-05 15:46:03,161 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 15:46:03,161 [DEBUG] send_request_body.complete
+2025-08-05 15:46:03,161 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 15:46:05,152 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 05 Aug 2025 10:16:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'019879bb-22da-7f5b-81e2-e1fb5921c006'), (b'x-kong-request-id', b'019879bb-22da-7f5b-81e2-e1fb5921c006'), (b'x-envoy-upstream-service-time', b'583'), (b'x-ratelimit-limit-tokens-minute', b'20000000'), (b'x-ratelimit-remaining-tokens-minute', b'19982557'), (b'x-ratelimit-limit-tokens-month', b'200000000000'), (b'x-ratelimit-remaining-tokens-month', b'199999916883'), (b'x-ratelimit-tokens-query-cost', b'17443'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'59'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'583'), (b'x-kong-proxy-latency', b'119'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Abn77csxSYOpM.E1cxcSshShH2MK1VAJcNpCDeC6_rk-1754388964-1.0.1.1-Lv_wuqnFKFzyeZc7_.aOQhyaKUZI9mWKC6SschM__Ft2nUs3g_ZUMxRZjWYrB4h38chl.clKq0OKKxG4yNeoyRRGCeI_zv8k.YXkLnpizg0; path=/; expires=Tue, 05-Aug-25 10:46:04 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=Hy0l69BnwC3iy7jD_9U_kk6x3zceR_DRab5SXn5uX9M-1754388964831-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a5896aa9a147d6-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 15:46:05,156 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-05 15:46:05,156 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 15:46:05,301 [DEBUG] receive_response_body.complete
+2025-08-05 15:46:05,301 [DEBUG] response_closed.started
+2025-08-05 15:46:05,301 [DEBUG] response_closed.complete
+2025-08-05 15:46:05,324 [DEBUG] close.started
+2025-08-05 15:46:05,324 [DEBUG] close.complete
+2025-08-05 15:46:06,006 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 15:46:06,949 [DEBUG] connect_tcp.started host='api.mistral.ai' port=443 local_address=None timeout=30.0 socket_options=None
+2025-08-05 15:46:06,957 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 15:46:07,016 [DEBUG] connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000022705FA6870>
+2025-08-05 15:46:07,025 [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x00000227060AA3D0> server_hostname='api.mistral.ai' timeout=30.0
+2025-08-05 15:46:07,130 [DEBUG] start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000022705F64E00>
+2025-08-05 15:46:07,130 [DEBUG] send_request_headers.started request=<Request [b'POST']>
+2025-08-05 15:46:07,130 [DEBUG] send_request_headers.complete
+2025-08-05 15:46:07,135 [DEBUG] send_request_body.started request=<Request [b'POST']>
+2025-08-05 15:46:07,136 [DEBUG] send_request_body.complete
+2025-08-05 15:46:07,136 [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+2025-08-05 15:46:08,778 [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 05 Aug 2025 10:16:08 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'mistral-correlation-id', b'019879bb-314d-7618-b567-4474ba45363e'), (b'x-kong-request-id', b'019879bb-314d-7618-b567-4474ba45363e'), (b'x-envoy-upstream-service-time', b'536'), (b'x-ratelimit-limit-tokens-minute', b'20000000'), (b'x-ratelimit-remaining-tokens-minute', b'19967163'), (b'x-ratelimit-limit-tokens-month', b'200000000000'), (b'x-ratelimit-remaining-tokens-month', b'199999901489'), (b'x-ratelimit-tokens-query-cost', b'15394'), (b'x-ratelimit-limit-req-minute', b'60'), (b'x-ratelimit-remaining-req-minute', b'58'), (b'access-control-allow-origin', b'*'), (b'x-kong-upstream-latency', b'537'), (b'x-kong-proxy-latency', b'174'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=0lyNZ4SDj5Vah47XDrA4TSom3v3hkyuy6_iVfFfzhEs-1754388968-1.0.1.1-xZXL36qcxJYNHbPqwrmRgB.b_HHkmTLHjG6I1vjpm7txpStsW2X9D0hDI2n5QG754L4OUfuyQ2l06Vt0sFzVYGXuDi6Aq6v5VkL00mtq8vI; path=/; expires=Tue, 05-Aug-25 10:46:08 GMT; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=15552000; includeSubDomains'), (b'Set-Cookie', b'_cfuvid=Jba.svUo2hNaDoShKgKAL1SCugGm6m87Vsf6802X_8M-1754388968525-0.0.1.1-604800000; path=/; domain=.mistral.ai; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96a589838b7b483e-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-05 15:46:08,783 [INFO] HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-05 15:46:08,783 [DEBUG] receive_response_body.started request=<Request [b'POST']>
+2025-08-05 15:46:09,006 [DEBUG] receive_response_body.complete
+2025-08-05 15:46:09,006 [DEBUG] response_closed.started
+2025-08-05 15:46:09,006 [DEBUG] response_closed.complete
+2025-08-05 15:46:09,019 [DEBUG] close.started
+2025-08-05 15:46:09,019 [DEBUG] close.complete
+2025-08-05 15:46:10,039 [DEBUG] https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-08-05 16:03:17,916 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:03:17,917 [INFO] Tortoise-ORM shutdown
+2025-08-05 16:30:28,050 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 16:30:28,162 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001EFB6B210D0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 16:30:28,163 [INFO] Tortoise-ORM generating schema
+2025-08-05 16:30:28,163 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:30:28,235 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001EFB77EB340> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:30:28,236 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:30:39,105 [DEBUG] SELECT "full_text","collection_name","missing_gaps","filename","novel_insights","title","id","text_excerpt","similarities" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['string', 1]
+2025-08-05 16:31:51,024 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:31:51,025 [INFO] Tortoise-ORM shutdown
+2025-08-05 16:31:57,110 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 16:31:57,152 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000002A28BE487A0>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 16:31:57,152 [INFO] Tortoise-ORM generating schema
+2025-08-05 16:31:57,153 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:31:57,368 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000002A28BEEB340> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:31:57,369 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:17,036 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:33:17,037 [INFO] Tortoise-ORM shutdown
+2025-08-05 16:33:22,743 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 16:33:22,786 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001E35FB18A10>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 16:33:22,786 [INFO] Tortoise-ORM generating schema
+2025-08-05 16:33:22,786 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:22,860 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001E35FBBF340> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:33:22,860 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:22,867 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:33:22,867 [INFO] Tortoise-ORM shutdown
+2025-08-05 16:33:28,500 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 16:33:28,545 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001DBE7121730>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 16:33:28,546 [INFO] Tortoise-ORM generating schema
+2025-08-05 16:33:28,546 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:28,615 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001DBE71DF4C0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:33:28,615 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:28,620 [DEBUG] Closed connection pool None with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:33:28,620 [INFO] Tortoise-ORM shutdown
+2025-08-05 16:33:34,152 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 16:33:34,193 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x000001C3AB6E0110>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 16:33:34,194 [INFO] Tortoise-ORM generating schema
+2025-08-05 16:33:34,194 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:34,259 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x000001C3AB7A34C0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:33:34,259 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:33:56,964 [DEBUG] SELECT "text_excerpt","id","missing_gaps","title","filename","novel_insights","collection_name","similarities","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['string', 1]
+2025-08-05 16:33:58,782 [DEBUG] SELECT "text_excerpt","id","missing_gaps","title","filename","novel_insights","collection_name","similarities","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['string', 1]
+2025-08-05 16:33:59,610 [DEBUG] SELECT "text_excerpt","id","missing_gaps","title","filename","novel_insights","collection_name","similarities","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['string', 1]
+2025-08-05 16:34:45,214 [DEBUG] SELECT "text_excerpt","id","missing_gaps","title","filename","novel_insights","collection_name","similarities","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['string', 1]
+2025-08-05 16:35:14,797 [DEBUG] Tortoise-ORM startup
+    connections: {'default': {'engine': 'tortoise.backends.asyncpg', 'credentials': {'port': 5432, 'database': 'postgres', 'host': 'localhost', 'user': 'postgres', 'password': 'sma***'}}}
+    apps: {'models': {'models': ['app.db.models'], 'default_connection': 'default'}}
+2025-08-05 16:35:14,843 [INFO] Tortoise-ORM started, {'default': <tortoise.backends.asyncpg.client.AsyncpgDBClient object at 0x0000011F3A6F0350>}, {'models': {'PDFLog': <class 'app.db.models.PDFLog'>}}
+2025-08-05 16:35:14,844 [INFO] Tortoise-ORM generating schema
+2025-08-05 16:35:14,844 [DEBUG] Creating schema: CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:35:14,906 [DEBUG] Created connection pool <asyncpg.pool.Pool object at 0x0000011F3E8934C0> with params: {'host': 'localhost', 'port': 5432, 'user': 'postgres', 'database': 'postgres', 'min_size': 1, 'max_size': 5, 'connection_class': <class 'asyncpg.connection.Connection'>, 'loop': None, 'server_settings': {}}
+2025-08-05 16:35:14,907 [DEBUG] CREATE TABLE IF NOT EXISTS "pdf_logs" (
+    "id" SERIAL NOT NULL PRIMARY KEY,
+    "filename" VARCHAR(255) NOT NULL UNIQUE,
+    "title" VARCHAR(255) NOT NULL,
+    "text_excerpt" TEXT NOT NULL,
+    "full_text" TEXT,
+    "collection_name" VARCHAR(255) NOT NULL,
+    "novel_insights" TEXT,
+    "similarities" TEXT,
+    "missing_gaps" TEXT
+);
+2025-08-05 16:35:37,341 [DEBUG] Calling on_part_begin with no data
+2025-08-05 16:35:37,342 [DEBUG] Calling on_header_field with data[42:61]
+2025-08-05 16:35:37,342 [DEBUG] Calling on_header_value with data[63:212]
+2025-08-05 16:35:37,342 [DEBUG] Calling on_header_end with no data
+2025-08-05 16:35:37,342 [DEBUG] Calling on_header_field with data[214:226]
+2025-08-05 16:35:37,342 [DEBUG] Calling on_header_value with data[228:243]
+2025-08-05 16:35:37,343 [DEBUG] Calling on_header_end with no data
+2025-08-05 16:35:37,343 [DEBUG] Calling on_headers_finished with no data
+2025-08-05 16:35:37,343 [DEBUG] Calling on_part_data with data[247:16384]
+2025-08-05 16:35:37,345 [DEBUG] Calling on_part_data with data[0:212992]
+2025-08-05 16:35:37,346 [DEBUG] Calling on_part_data with data[0:245760]
+2025-08-05 16:35:37,347 [DEBUG] Calling on_part_data with data[0:212992]
+2025-08-05 16:35:37,348 [DEBUG] Calling on_part_data with data[0:180224]
+2025-08-05 16:35:37,349 [DEBUG] Calling on_part_data with data[0:81920]
+2025-08-05 16:35:37,350 [DEBUG] Calling on_part_data with data[0:245760]
+2025-08-05 16:35:37,356 [DEBUG] Calling on_part_data with data[0:262144]
+2025-08-05 16:35:37,357 [DEBUG] Calling on_part_data with data[0:262144]
+2025-08-05 16:35:37,359 [DEBUG] Calling on_part_data with data[0:212992]
+2025-08-05 16:35:37,360 [DEBUG] Calling on_part_data with data[0:163840]
+2025-08-05 16:35:37,361 [DEBUG] Calling on_part_data with data[0:147456]
+2025-08-05 16:35:37,362 [DEBUG] Calling on_part_data with data[0:245760]
+2025-08-05 16:35:37,363 [DEBUG] Calling on_part_data with data[0:109342]
+2025-08-05 16:35:37,363 [DEBUG] Calling on_part_end with no data
+2025-08-05 16:35:37,363 [DEBUG] Calling on_part_begin with no data
+2025-08-05 16:35:37,364 [DEBUG] Calling on_header_field with data[109386:109405]
+2025-08-05 16:35:37,364 [DEBUG] Calling on_header_value with data[109407:109531]
+2025-08-05 16:35:37,364 [DEBUG] Calling on_header_end with no data
+2025-08-05 16:35:37,364 [DEBUG] Calling on_header_field with data[109533:109545]
+2025-08-05 16:35:37,364 [DEBUG] Calling on_header_value with data[109547:109562]
+2025-08-05 16:35:37,365 [DEBUG] Calling on_header_end with no data
+2025-08-05 16:35:37,365 [DEBUG] Calling on_headers_finished with no data
+2025-08-05 16:35:37,365 [DEBUG] Calling on_part_data with data[109566:114688]
+2025-08-05 16:35:37,368 [DEBUG] Calling on_part_data with data[0:262144]
+2025-08-05 16:35:37,369 [DEBUG] Calling on_part_data with data[0:262144]
+2025-08-05 16:35:37,370 [DEBUG] Calling on_part_data with data[0:262144]
+2025-08-05 16:35:37,370 [DEBUG] Calling on_part_data with data[0:229376]
+2025-08-05 16:35:37,371 [DEBUG] Calling on_part_data with data[0:131072]
+2025-08-05 16:35:37,374 [DEBUG] Calling on_part_data with data[0:262144]
+2025-08-05 16:35:37,376 [DEBUG] Calling on_part_data with data[0:8454]
+2025-08-05 16:35:37,376 [DEBUG] Calling on_part_end with no data
+2025-08-05 16:35:37,376 [DEBUG] Calling on_end with no data
+2025-08-05 16:35:37,378 [DEBUG] SELECT "title","filename","collection_name","id","novel_insights","similarities","missing_gaps","text_excerpt","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['Sales_Forecasting_of_Overrated_Products_Fine_Tuning_of_Customers_Rating_by_Integrating_Sentiment_Analysis (2).pdf', 1]
+2025-08-05 16:35:53,056 [DEBUG] SELECT "title","filename","collection_name","id","novel_insights","similarities","missing_gaps","text_excerpt","full_text" FROM "pdf_logs" WHERE "filename"=$1 LIMIT $2: ['string', 1]
