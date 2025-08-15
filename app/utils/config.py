@@ -15,11 +15,11 @@ class Settings(BaseSettings):
     INSTRUCTOR_MODEL_PATH: str = "hkunlp/instructor-xl"
 
     # === PostgreSQL ===
-    POSTGRES_USER: str = "postgres"
-    POSTGRES_PASSWORD: str = "smarty@9872"
-    POSTGRES_DB: str = "rpostgres"
-    DB_HOST: str = "localhost"
-    DB_PORT: str = "5432"
+    POSTGRES_USER: str 
+    POSTGRES_PASSWORD: str 
+    POSTGRES_DB: str 
+    DB_HOST: str 
+    DB_PORT: str 
 
     # === Redis ===
     REDIS_HOST: str = "localhost"
@@ -36,8 +36,8 @@ class Settings(BaseSettings):
     def REDIS_BROKER_URL(self) -> str:
         return f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}/0"
 
-    # === Config ===
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")  # You can use "ignore" or "forbid"
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
 
 # Export the settings instance
 settings = Settings()
